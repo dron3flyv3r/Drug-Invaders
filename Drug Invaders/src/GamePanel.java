@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable{
     static final int ALIEN_WIDTH = 50;
     static final int ALIEN_HEIGHT = 50;
     static final int ALIEN_SPACE = 15;
-    static final int NUM_ALIEN = (GAME_WIDTH-ALIEN_SPACE)/(ALIEN_WIDTH+ALIEN_SPACE);
+    static final int NUM_ALIEN = (GAME_WIDTH-ALIEN_SPACE)/(ALIEN_WIDTH+ALIEN_SPACE); //giver det max antal af aliens der kan være der
     static final int NUM_ALIEN_LINES = 5;
 
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
