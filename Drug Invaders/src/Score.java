@@ -3,8 +3,13 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
+ 
 public class Score { 
-
+ 
+    int pliv;
+    int skade = 1;
+    int score = 0;
+    String hej = "hej med dig";
     /* 
     indhold:
     scoren
@@ -13,30 +18,27 @@ public class Score {
     lidt simple GUI
     */
 
-    Score(){ //brug til at lave en reset
-
+    Score(int PLAYERS_LIFE){ //brug til at lave en reset
+    pliv = PLAYERS_LIFE;
     }
 
     public void playerLiv(){
+        pliv = pliv - skade;
+    }     
 
-        int pLiv = 3 - skadet(0);
+    public int skadet(){
 
-        if (pLiv == 0){
+        return skade+1;
 
-        }
     }
 
-    public int skadet(int x){
-
-        return x+1;
-
+    public int score(){
+        score = score + 100;
+        return score;
     }
 
     public void draw(Graphics g) {
-        
+        g.setColor(Color.WHITE);
+        g.drawString("hejj", 300, 50);
     }
-
-
-
-
 }

@@ -18,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //alien indstillinger
     static final int ALIEN_WIDTH = 50;
-    static final int ALIEN_HEIGHT = 50;
+    static final int ALIEN_HEIGHT = 90;
     static final int ALIEN_SPACE = 15;
     static final int NUM_ALIEN = (GAME_WIDTH-ALIEN_SPACE)/(ALIEN_WIDTH+ALIEN_SPACE); //
     static final int NUM_ALIEN_LINES = 5;
@@ -46,13 +46,16 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void newAlien() {
-        
+        new Alien();
     }
 
     public void draw(Graphics g) {
 
         Player.draw(g);
+
+    
         Alien.draw(g);
+        
         
     }
 
@@ -65,6 +68,7 @@ public class GamePanel extends JPanel implements Runnable{
         if (Player.x>=GAME_WIDTH-PLAYER_WIDTH) {
             Player.x = GAME_WIDTH-PLAYER_WIDTH;
         }
+        
     }
 
     public void move() {
