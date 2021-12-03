@@ -3,17 +3,17 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
-public class Bullet {
+public class Bullet extends Rectangle {
 
 static int bVelocity;
-static int Speed = 5;
+static int Speed = 10;
 static int y;
 static int x;
 static int width = 5;
 static int height = 7;
 
 Bullet(){
-    
+    y = GamePanel.GAME_WIDTH+10;
 }
 
  public static void setSpeed(int speed) {
@@ -21,7 +21,7 @@ Bullet(){
 } 
     
 public static void move() {
-    y = y + bVelocity;
+    y = y - bVelocity;
 }
 
 
@@ -37,13 +37,9 @@ public static void newBullet(Graphics g) {
 
 public static void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_W) {
-        x = (Player.x + (Player.WIDTH/2));
-        y = GamePanel.GAME_HEIGHT;
+        x = (Player.x + (Player.WIDTH/2)-(width/2));
+        y = (GamePanel.GAME_HEIGHT-(Player.HEIGHT+Player.B_HEIGHT+5+height));
         setSpeed(Speed);
-        newBullet();
-    }
-}
-public static void keyReleased(KeyEvent e) {
-    
+        }
     }
 }

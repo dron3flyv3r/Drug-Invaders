@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable{
     static final int ALIEN_WIDTH = 50;
     static final int ALIEN_HEIGHT = 90;
     static final int ALIEN_SPACE = 15;
-    static final int NUM_ALIEN = (GAME_WIDTH-ALIEN_SPACE)/(ALIEN_WIDTH+ALIEN_SPACE); //
+    static final int NUM_ALIEN = GAME_WIDTH/(ALIEN_WIDTH+ALIEN_SPACE);
     static final int NUM_ALIEN_LINES = 3;
 
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
@@ -31,6 +31,7 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     GamePanel(){
+        
         newPlayer();
         newAlien();
         this.setFocusable(true);
@@ -42,6 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void newPlayer() { //reset player 
+        new Bullet();
         player = new Player(GAME_HEIGHT, GAME_WIDTH, PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_SPEED, BARREL_WIDTH, BARREL_HEIGHT);
     }
 
@@ -68,22 +70,29 @@ public class GamePanel extends JPanel implements Runnable{
             Player.x = GAME_WIDTH-PLAYER_WIDTH;
         }
 
-/*         // checker om player har ramt alien
-        for (int i = 0; i < NUM_ALIEN; i++) {
-            if (Alien.x[i] <= Player.x + PLAYER_WIDTH && Alien.x[i] + ALIEN_WIDTH >= Player.x && Alien.y[i] <= Player.y + PLAYER_HEIGHT && Alien.y[i] + ALIEN_HEIGHT >= Player.y) {
-                Player.life--;
-                if (Player.life == 0) {
-                    System.out.println("Game Over");
-                    System.exit(0);
-                }
+        if (Bullet.y<= 0) {
+            Bullet.setSpeed(0);
+            Bullet.y = GAME_HEIGHT + 50;
+        }
+    
+        // checker om Bullet hit Alien 
+        for (int i = 0; i < Alien.arlTmpX.size(); i++) {
+            if (Bullet.x >= Alien.arlTmpX.get(i) && Bullet.x <= Alien.arlTmpX.get(i) + ALIEN_WIDTH && Bullet.y >= Alien.y && Bullet.y <= Alien.y + ALIEN_HEIGHT) {
+                System.out.println("for x");
+
+                System.out.println("hit");
+                Bullet.setSpeed(0);
+                Bullet.y = GAME_HEIGHT + 50;
+                Alien.arlTmpX.remove(Alien.arlTmpX.get(i)); 
+                
             }
-        } */
-        
+        }
     }
 
     public void move() {
         Player.move();
         Bullet.move();
+        Alien.move();
 
     }
 
@@ -120,7 +129,6 @@ public class GamePanel extends JPanel implements Runnable{
         }
         public void keyReleased(KeyEvent e) {
             Player.keyReleased(e);
-            Bullet.keyReleased(e);
         }
     }
 }
