@@ -5,32 +5,45 @@ import javax.swing.*;
 
 public class Bullet {
 
-int bVelocity = 5;
-int y = 1;
-int x = 1;
-int width = 5;
-int height = 7;
+static int bVelocity;
+static int Speed = 5;
+static int y;
+static int x;
+static int width = 5;
+static int height = 7;
 
 Bullet(){
-
-}
     
-public void move() {
+}
+
+ public static void setSpeed(int speed) {
+    bVelocity = speed;
+} 
+    
+public static void move() {
     y = y + bVelocity;
 }
 
 
-public void draw(Graphics g) {
-    g.setColor(new Color(0,150,0));
+public static void draw(Graphics g) {
+    g.setColor(Color.WHITE);
+    g.fillRect(x, y, width, height);
+}
+
+public static void newBullet(Graphics g) {
+    g.setColor(Color.WHITE);
     g.fillRect(x, y, width, height);
 }
 
 public static void keyPressed(KeyEvent e) {
-    if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-        
+    if (e.getKeyCode()==KeyEvent.VK_W) {
+        x = (Player.x + (Player.WIDTH/2));
+        y = GamePanel.GAME_HEIGHT;
+        setSpeed(Speed);
+        newBullet();
     }
 }
 public static void keyReleased(KeyEvent e) {
     
-}
+    }
 }

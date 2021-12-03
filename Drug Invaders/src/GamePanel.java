@@ -21,7 +21,7 @@ public class GamePanel extends JPanel implements Runnable{
     static final int ALIEN_HEIGHT = 90;
     static final int ALIEN_SPACE = 15;
     static final int NUM_ALIEN = (GAME_WIDTH-ALIEN_SPACE)/(ALIEN_WIDTH+ALIEN_SPACE); //
-    static final int NUM_ALIEN_LINES = 5;
+    static final int NUM_ALIEN_LINES = 3;
 
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
     Player player;
@@ -52,8 +52,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void draw(Graphics g) {
 
         Player.draw(g);
-
-    
+        Bullet.draw(g);
         Alien.draw(g);
         
         
@@ -68,11 +67,24 @@ public class GamePanel extends JPanel implements Runnable{
         if (Player.x>=GAME_WIDTH-PLAYER_WIDTH) {
             Player.x = GAME_WIDTH-PLAYER_WIDTH;
         }
+
+/*         // checker om player har ramt alien
+        for (int i = 0; i < NUM_ALIEN; i++) {
+            if (Alien.x[i] <= Player.x + PLAYER_WIDTH && Alien.x[i] + ALIEN_WIDTH >= Player.x && Alien.y[i] <= Player.y + PLAYER_HEIGHT && Alien.y[i] + ALIEN_HEIGHT >= Player.y) {
+                Player.life--;
+                if (Player.life == 0) {
+                    System.out.println("Game Over");
+                    System.exit(0);
+                }
+            }
+        } */
         
     }
 
     public void move() {
         Player.move();
+        Bullet.move();
+
     }
 
     public void paint(Graphics g) {
