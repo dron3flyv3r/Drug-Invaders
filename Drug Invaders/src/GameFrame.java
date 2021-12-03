@@ -6,6 +6,7 @@ public class GameFrame extends JFrame{
     
     GameFrame(){
         panel = new GamePanel();
+
         this.add(panel);
         this.setBackground(Color.BLACK);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
 
  
 public class Score { 
@@ -9,6 +10,7 @@ public class Score {
     static int pliv;
     static int GH;
     static int GW;
+    static int PlayerScore;
     /* 
     indhold:
     scoren
@@ -22,36 +24,23 @@ public class Score {
     GH = GAME_HEIGHT;
     GW = GAME_WIDTH;
     }
-    /*
-    //mangler alien.y
-    public void playerLiv(){
-        if (Alien.y > GH){
-            pliv--;
-        }
-        
-        if (pliv==0){
-            gameOver(g);
-        }
-    }     
-    */
 
-    public void score(Graphics g) {
+    public static void draw(Graphics g) {
+        int grayColor = 225;
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
-        g.drawString("Score: ?", GW+50, GH+100);
-    }
+        g.drawString("Score: " + PlayerScore, GW+50, GH+100);
 
-    public void HP(Graphics g) {
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
-        g.drawString("HP: ?" + pliv, GW+50, GH+50);
+        g.drawString("HP: " + pliv, GW+50, GH+50);
     }
 
     public void gameOver(Graphics g) {
         //score
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
-        g.drawString("Score: ?", GW+50, GH+50);
+        g.drawString("Score: " + PlayerScore, GW+50, GH+50);
         
         //game over
         g.setColor(Color.RED);

@@ -17,9 +17,9 @@ public class GamePanel extends JPanel implements Runnable{
     static final int PLAYERS_LIFE = 3;
 
     //alien indstillinger
-    static final int ALIEN_WIDTH = 50;
-    static final int ALIEN_HEIGHT = 90;
-    static final int ALIEN_SPACE = 15;
+    static final int ALIEN_WIDTH = 40;
+    static final int ALIEN_HEIGHT = 80;
+    static final int ALIEN_SPACE = 30;
     static final int NUM_ALIEN = GAME_WIDTH/(ALIEN_WIDTH+ALIEN_SPACE);
     static final int NUM_ALIEN_LINES = 3;
 
@@ -52,12 +52,10 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void draw(Graphics g) {
-
         Player.draw(g);
         Bullet.draw(g);
         Alien.draw(g);
-        
-        
+        Score.draw(g);        
     }
 
     public void checkCollision() {
@@ -76,15 +74,27 @@ public class GamePanel extends JPanel implements Runnable{
         }
     
         // checker om Bullet hit Alien 
-        for (int i = 0; i < Alien.arlTmpX.size(); i++) {
-            if (Bullet.x >= Alien.arlTmpX.get(i) && Bullet.x <= Alien.arlTmpX.get(i) + ALIEN_WIDTH && Bullet.y >= Alien.y && Bullet.y <= Alien.y + ALIEN_HEIGHT) {
-                System.out.println("for x");
-
-                System.out.println("hit");
+        for (int i = 0; i < Alien.arl1.size(); i++) {
+            if (Bullet.x >= Alien.arl1.get(i) && Bullet.x <= Alien.arl1.get(i) + ALIEN_WIDTH && Bullet.y >= Alien.y && Bullet.y <= Alien.y + ALIEN_HEIGHT) {
                 Bullet.setSpeed(0);
                 Bullet.y = GAME_HEIGHT + 50;
-                Alien.arlTmpX.remove(Alien.arlTmpX.get(i)); 
-                
+                Alien.arl1.remove(Alien.arl1.get(i)); 
+            }
+        }
+        // checker om Bullet hit Alien 
+        for (int i = 0; i < Alien.arl2.size(); i++) {
+            if (Bullet.x >= Alien.arl2.get(i) && Bullet.x <= Alien.arl2.get(i) + ALIEN_WIDTH && Bullet.y >= (Alien.y+ALIEN_HEIGHT+ALIEN_SPACE) && Bullet.y <= (Alien.y+ALIEN_HEIGHT+ALIEN_SPACE) + ALIEN_HEIGHT) {
+                Bullet.setSpeed(0);
+                Bullet.y = GAME_HEIGHT + 50;
+                Alien.arl2.remove(Alien.arl2.get(i)); 
+            }
+        }
+        // checker om Bullet hit Alien 
+        for (int i = 0; i < Alien.arl3.size(); i++) {
+            if (Bullet.x >= Alien.arl3.get(i) && Bullet.x <= Alien.arl3.get(i) + ALIEN_WIDTH && Bullet.y >= (Alien.y+ALIEN_HEIGHT*2+ALIEN_SPACE*2) && Bullet.y <= (Alien.y+ALIEN_HEIGHT*2+ALIEN_SPACE*2) + ALIEN_HEIGHT) {
+                Bullet.setSpeed(0);
+                Bullet.y = GAME_HEIGHT + 50;
+                Alien.arl3.remove(Alien.arl3.get(i)); 
             }
         }
     }
