@@ -65,6 +65,9 @@ public class Player{
             setXDirection(0);
             move();
         } 
+        if (GamePanel.GAMEOVER == true && e.getKeyCode() == KeyEvent.VK_SPACE) {
+            GamePanel.newGame();
+        }
     }
 
     public static void setXDirection(int xDirection) {

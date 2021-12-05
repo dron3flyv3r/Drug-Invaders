@@ -23,28 +23,29 @@ public class Score {
     pliv = PLAYERS_LIFE;
     GH = GAME_HEIGHT;
     GW = GAME_WIDTH;
+    PlayerScore = 0;
     }
 
     public static void draw(Graphics g) {
         int grayColor = 225;
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
-        g.drawString("Score: " + PlayerScore, GW+50, GH+100);
+        g.drawString("Score: " + PlayerScore, 50, 100);
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
-        g.drawString("HP: " + pliv, GW+50, GH+50);
+        g.drawString("HP: " + pliv, 50, 50);
     }
 
-    public void gameOver(Graphics g) {
+    public static void gameOver(Graphics g) {
         //score
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
-        g.drawString("Score: " + PlayerScore, GW+50, GH+50);
+        g.drawString("Score: " + PlayerScore, 50, 50);
         
         //game over
         g.setColor(Color.RED);
         g.setFont(new Font("free ink",Font.BOLD,69));
-        g.drawString("GAME OVER", GW/2, GH/2);
+        g.drawString("GAME OVER", GW/2 - 180, GH/2);
     }
 }
