@@ -11,7 +11,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //player indstillinger
     static final int PLAYER_WIDTH = 90;
-    static final int PLAYER_HEIGHT = 25;
+    static final int PLAYER_HEIGHT = 39;
     static final int PLAYER_SPEED = 5;
     static final int BARREL_WIDTH = 10;
     static final int BARREL_HEIGHT = 16;
@@ -120,8 +120,12 @@ public class GamePanel extends JPanel implements Runnable{
                 Bullet.y = GAME_HEIGHT + 50;
                 Alien.arl3.remove(Alien.arl3.get(i)); 
                 Score.PlayerScore = Score.PlayerScore + 85;
-                Score.pliv = Score.pliv - 1;
+                //Score.pliv = Score.pliv - 1; //for test only
             }
+        }
+
+        if (Alien.arl1.size() == 0 && Alien.arl2.size() == 0 && Alien.arl3.size() == 0) {
+            newAlien();
         }
         if (Score.pliv == 0) {
             GAMEOVER = true;

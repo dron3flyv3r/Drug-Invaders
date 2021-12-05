@@ -38,7 +38,7 @@ public static void newBullet(Graphics g) {
 public static void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_W) {
         x = (Player.x + (Player.WIDTH/2)-(width/2));
-        y = (GamePanel.GAME_HEIGHT-(Player.HEIGHT+Player.B_HEIGHT+5+height));
+        y = (GamePanel.GAME_HEIGHT-(Player.HEIGHT+10));
         setSpeed(Speed);
         }
     }

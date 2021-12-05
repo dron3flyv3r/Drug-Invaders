@@ -51,17 +51,19 @@ public class Alien extends Rectangle {
     }
 
     public static void draw(Graphics g) {
-        Image img = new ImageIcon("alien.png").getImage();
+        Image img = new ImageIcon("alien1.png").getImage();
+        Image img2 = new ImageIcon("alien2.png").getImage();
+        Image img3 = new ImageIcon("alien3.png").getImage();
 
             g.setColor(Color.red);
         for(int j = 0; j < arl1.size(); j++){
             g.drawImage(img, arl1.get(j), y, null);
         }
         for(int j = 0; j < arl2.size(); j++){
-            g.drawImage(img, arl2.get(j), y+GamePanel.ALIEN_HEIGHT+GamePanel.ALIEN_SPACE, null);
+            g.drawImage(img2, arl2.get(j), y+GamePanel.ALIEN_HEIGHT+GamePanel.ALIEN_SPACE, null);
         }
         for(int j = 0; j < arl3.size(); j++){
-            g.drawImage(img, arl3.get(j), y+GamePanel.ALIEN_HEIGHT*2+GamePanel.ALIEN_SPACE*2, null);
+            g.drawImage(img3, arl3.get(j), y+GamePanel.ALIEN_HEIGHT*2+GamePanel.ALIEN_SPACE*2, null);
         }
     }
 } 
