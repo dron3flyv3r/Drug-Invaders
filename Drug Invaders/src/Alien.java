@@ -52,9 +52,9 @@ public class Alien extends Rectangle {
     }
 
     public static void draw(Graphics g) {
-        Image img = new ImageIcon("/Users/kasperlarsen/Documents/HTX/2.4/2.4 Code/Drug-Invaders/Drug Invaders/res/alien1.png").getImage();
-        Image img2 = new ImageIcon("/Users/kasperlarsen/Documents/HTX/2.4/2.4 Code/Drug-Invaders/Drug Invaders/res/alien2.png").getImage();
-        Image img3 = new ImageIcon("/Users/kasperlarsen/Documents/HTX/2.4/2.4 Code/Drug-Invaders/Drug Invaders/res/alien3.png").getImage();
+        Image img = new ImageIcon("alien1.png").getImage();
+        Image img2 = new ImageIcon("alien2.png").getImage();
+        Image img3 = new ImageIcon("alien3.png").getImage();
 
             g.setColor(Color.red);
         for(int j = 0; j < arl1.size(); j++){
