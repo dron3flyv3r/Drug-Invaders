@@ -6,7 +6,6 @@
         "lib/**/*.jar"
     ],
     "java.project.sourcePaths": [
-        "Drug Invaders/res",
         "Drug Invaders/src"
     ]
 }
