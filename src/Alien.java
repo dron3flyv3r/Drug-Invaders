@@ -1,6 +1,11 @@
-import java.awt.*;
-import java.util.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.ImageIcon;
 public class Alien extends Rectangle {
 
 	private static final long serialVersionUID = 4509750528040500953L;

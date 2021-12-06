@@ -1,6 +1,8 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.util.Random;
+
 import javax.swing.ImageIcon;
 
 public class Player{
