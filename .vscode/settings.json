@@ -1,5 +1,12 @@
 {
     "cSpell.words": [
         "GAMEOVER"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.project.sourcePaths": [
+        "Drug Invaders/res",
+        "Drug Invaders/src"
     ]
 }

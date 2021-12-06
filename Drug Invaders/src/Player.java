@@ -89,7 +89,7 @@ public class Player{
     }
 
     public static void draw(Graphics g){
-        Image img = new ImageIcon("player.png").getImage();
+        Image img = new ImageIcon("/Users/kasperlarsen/Documents/HTX/2.4/2.4 Code/Drug-Invaders/Drug Invaders/res/player.png").getImage();
         g.drawImage(img, x, y, null);
         /*
         g.setColor(new Color(0,150,0));
