@@ -2,12 +2,11 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
 
  
 public class Score { 
  
-    static int pliv;
+    static int pLife;
     static int GH;
     static int GW;
     static int PlayerScore;
@@ -20,21 +19,20 @@ public class Score {
     */
 
     Score(int PLAYERS_LIFE, int GAME_HEIGHT, int GAME_WIDTH){ //brug til at lave en reset
-    pliv = PLAYERS_LIFE;
+    pLife = PLAYERS_LIFE;
     GH = GAME_HEIGHT;
     GW = GAME_WIDTH;
     PlayerScore = 0;
     }
 
     public static void draw(Graphics g) {
-        int grayColor = 225;
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
         g.drawString("Score: " + PlayerScore, 50, 100);
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("free ink",Font.BOLD,40));
-        g.drawString("HP: " + pliv, 50, 50);
+        g.drawString("HP: " + pLife, 50, 50);
     }
 
     public static void gameOver(Graphics g) {

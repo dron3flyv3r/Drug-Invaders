@@ -126,7 +126,7 @@ public class GamePanel extends JPanel implements Runnable{
         if (Alien.arl1.size() == 0 && Alien.arl2.size() == 0 && Alien.arl3.size() == 0) {
             newAlien();
         }
-        if (Score.pliv == 0) {
+        if (Score.pLife == 0) {
             GAMEOVER = true;
         }
     }
