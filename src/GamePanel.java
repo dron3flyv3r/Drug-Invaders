@@ -3,12 +3,12 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class GamePanel extends JPanel implements Runnable{
-    //spillet spille område
-    static final int GAME_WIDTH = 950;
+
+	private static final long serialVersionUID = 1L;
+	static final int GAME_WIDTH = 950;
     static final int GAME_HEIGHT = 750;
     static boolean GAMEOVER;
-
-    //player indstillinger
+    
     static final int PLAYER_WIDTH = 90;
     static final int PLAYER_HEIGHT = 39;
     static final int PLAYER_SPEED = 5;
@@ -16,12 +16,13 @@ public class GamePanel extends JPanel implements Runnable{
     static final int BARREL_HEIGHT = 16;
     static final int PLAYERS_LIFE = 3;
 
-    //alien indstillinger
     static final int ALIEN_WIDTH = 40;
     static final int ALIEN_HEIGHT = 80;
     static final int ALIEN_SPACE = 30;
     static final int NUM_ALIEN = GAME_WIDTH/(ALIEN_WIDTH+ALIEN_SPACE);
     static final int NUM_ALIEN_LINES = 3;
+
+    
 
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
     static Player player;
@@ -55,6 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public static void newPlayer() { //reset player 
+        new AlienBullet();
         new Bullet();
         player = new Player(GAME_HEIGHT, GAME_WIDTH, PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_SPEED, BARREL_WIDTH, BARREL_HEIGHT);
     }
@@ -73,6 +75,7 @@ public class GamePanel extends JPanel implements Runnable{
             Bullet.draw(g);
             Alien.draw(g);
             Score.draw(g);
+            AlienBullet.draw(g);
         }
         if (GAMEOVER == true) {
             Score.gameOver(g);  
@@ -81,7 +84,6 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void checkCollision() {
 
-        // checker om player er indefor spillet
         if (Player.x<=0) {
             Player.x=0;
         }
@@ -94,34 +96,54 @@ public class GamePanel extends JPanel implements Runnable{
             Bullet.y = GAME_HEIGHT + 50;
         }
     
-        // checker om Bullet hit Alien 
         for (int i = 0; i < Alien.arl1.size(); i++) {
             if (Bullet.x >= Alien.arl1.get(i) && Bullet.x <= Alien.arl1.get(i) + ALIEN_WIDTH && Bullet.y >= Alien.y && Bullet.y <= Alien.y + ALIEN_HEIGHT) {
                 Bullet.setSpeed(0);
                 Bullet.y = GAME_HEIGHT + 50;
                 Alien.arl1.remove(Alien.arl1.get(i));
-                Score.PlayerScore = Score.PlayerScore + 105;
+                if (AlienBullet.spawnRate > 2) { AlienBullet.spawnRate--; }
+                Score.PlayerScore = Score.PlayerScore + 95;
             }
         }
-        // checker om Bullet hit Alien 
+ 
         for (int i = 0; i < Alien.arl2.size(); i++) {
             if (Bullet.x >= Alien.arl2.get(i) && Bullet.x <= Alien.arl2.get(i) + ALIEN_WIDTH && Bullet.y >= (Alien.y+ALIEN_HEIGHT+ALIEN_SPACE) && Bullet.y <= (Alien.y+ALIEN_HEIGHT+ALIEN_SPACE) + ALIEN_HEIGHT) {
                 Bullet.setSpeed(0);
                 Bullet.y = GAME_HEIGHT + 50;
                 Alien.arl2.remove(Alien.arl2.get(i));
-                Score.PlayerScore = Score.PlayerScore + 95;
+                if (AlienBullet.spawnRate > 2) { AlienBullet.spawnRate--; }
+                Score.PlayerScore = Score.PlayerScore + 40;
             }
         }
-        // checker om Bullet hit Alien 
+
         for (int i = 0; i < Alien.arl3.size(); i++) {
             if (Bullet.x >= Alien.arl3.get(i) && Bullet.x <= Alien.arl3.get(i) + ALIEN_WIDTH && Bullet.y >= (Alien.y+ALIEN_HEIGHT*2+ALIEN_SPACE*2) && Bullet.y <= (Alien.y+ALIEN_HEIGHT*2+ALIEN_SPACE*2) + ALIEN_HEIGHT) {
                 Bullet.setSpeed(0);
                 Bullet.y = GAME_HEIGHT + 50;
-                Alien.arl3.remove(Alien.arl3.get(i)); 
-                Score.PlayerScore = Score.PlayerScore + 85;
+                Alien.arl3.remove(Alien.arl3.get(i));
+                if (AlienBullet.spawnRate > 2) { AlienBullet.spawnRate--; } 
+                Score.PlayerScore = Score.PlayerScore + 15;
                 //Score.pliv = Score.pliv - 1; //for test only
             }
         }
+
+        if (AlienBullet.x.size() >= 1) {
+
+            if (AlienBullet.y.get(0) > GAME_HEIGHT) {
+                AlienBullet.x.remove(0);
+                AlienBullet.y.remove(0);
+            }
+            
+        
+
+        for (int i = 0; i < AlienBullet.y.size(); i++) {
+            if (AlienBullet.x.get(i) > Player.x && AlienBullet.x.get(i) < Player.x + PLAYER_WIDTH && AlienBullet.y.get(i) > Player.y && AlienBullet.y.get(i) < Player.y + PLAYER_HEIGHT ) {
+                AlienBullet.x.remove(i);
+                AlienBullet.y.remove(i);
+                Score.pLife = Score.pLife - 1;
+            }
+        }
+    }
 
         if (Alien.arl1.size() == 0 && Alien.arl2.size() == 0 && Alien.arl3.size() == 0) {
             newAlien();
@@ -135,7 +157,7 @@ public class GamePanel extends JPanel implements Runnable{
         Player.move();
         Bullet.move();
         Alien.move();
-
+        AlienBullet.move();
     }
 
     public void paint(Graphics g) {

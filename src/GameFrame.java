@@ -2,7 +2,11 @@ import java.awt.*;
 import javax.swing.*;
 
 public class GameFrame extends JFrame{
-    GamePanel panel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	GamePanel panel;
     
     GameFrame(){
         panel = new GamePanel();

@@ -1,12 +1,14 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 public class Alien extends Rectangle {
-    //static final (int, String ovs....) NAME(skriv med stort) = xxx;
-    static ArrayList<Integer> arl1=new ArrayList<Integer>();
+
+	private static final long serialVersionUID = 4509750528040500953L;
+	static ArrayList<Integer> arl1=new ArrayList<Integer>();
     static ArrayList<Integer> arl2=new ArrayList<Integer>();
     static ArrayList<Integer> arl3=new ArrayList<Integer>();
+
+    static Random rn = new Random();
     
     static final int WIDTH = 50;
     static final int HEIGHT = 90;
@@ -17,7 +19,7 @@ public class Alien extends Rectangle {
     static final int loop = 0;
     
 
-    Alien(){ // brug til at lav en reset
+    Alien(){ 
         speed = 1;
         x = 0;
         y = 10;
@@ -51,9 +53,10 @@ public class Alien extends Rectangle {
     }
 
     public static void draw(Graphics g) {
-        Image img = new ImageIcon("alien1.png").getImage();
-        Image img2 = new ImageIcon("alien2.png").getImage();
-        Image img3 = new ImageIcon("alien3.png").getImage();
+        Image img = new ImageIcon("src/alien1.png").getImage();
+        Image img2 = new ImageIcon("src/alien2.png").getImage();
+        Image img3 = new ImageIcon("src/alien3.png").getImage();
+        
 
             g.setColor(Color.red);
         for(int j = 0; j < arl1.size(); j++){

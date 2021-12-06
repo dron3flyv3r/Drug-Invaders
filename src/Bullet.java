@@ -3,6 +3,10 @@ import java.awt.event.*;
 
 public class Bullet extends Rectangle {
 
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 static int bVelocity;
 static int Speed = 10;
 static int y;
@@ -28,10 +32,6 @@ public static void draw(Graphics g) {
     g.fillRect(x, y, width, height);
 }
 
-public static void newBullet(Graphics g) {
-    g.setColor(Color.WHITE);
-    g.fillRect(x, y, width, height);
-}
 
 public static void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_W || e.getKeyCode()==KeyEvent.VK_UP) {

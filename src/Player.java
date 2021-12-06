@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-
+import java.util.*;
 import javax.swing.ImageIcon;
 
 public class Player{
@@ -14,6 +14,8 @@ public class Player{
      static int xVelocity;
      static int x;
      static int y;
+
+     static Random rn = new Random();
 
 
     Player(int GAME_HEIGHT,int GAME_WIDTH, int PLAYER_HEIGHT, int PLAYER_WIDTH, int PLAYER_SPEED, int BARREL_WIDTH, int BARREL_HEIGHT){
@@ -70,6 +72,12 @@ public class Player{
         if (GamePanel.GAMEOVER == true && e.getKeyCode() == KeyEvent.VK_SPACE) {
             GamePanel.newGame();
         }
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+
+            int AlienNumber = rn.nextInt(Alien.arl1.size() + 1);
+            AlienBullet.x.add(Alien.arl1.get(AlienNumber-1) + GamePanel.ALIEN_WIDTH/2);
+            AlienBullet.y.add(GamePanel.ALIEN_HEIGHT + Alien.y);
+        }
     }
 
     public static void setXDirection(int xDirection) {
@@ -81,7 +89,7 @@ public class Player{
     }
 
     public static void draw(Graphics g){
-        Image img = new ImageIcon("player.png").getImage();
+        Image img = new ImageIcon("src/player.png").getImage();
         g.drawImage(img, x, y, null);
         /*
         g.setColor(new Color(0,150,0));
