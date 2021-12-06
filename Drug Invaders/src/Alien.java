@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 public class Alien extends Rectangle {
@@ -6,8 +7,6 @@ public class Alien extends Rectangle {
     static ArrayList<Integer> arl1=new ArrayList<Integer>();
     static ArrayList<Integer> arl2=new ArrayList<Integer>();
     static ArrayList<Integer> arl3=new ArrayList<Integer>();
-
-    static Random rn = new Random();
     
     static final int WIDTH = 50;
     static final int HEIGHT = 90;
