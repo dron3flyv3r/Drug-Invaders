@@ -9,6 +9,7 @@ public class Score {
     static int GH;
     static int GW;
     static int PlayerScore;
+    static int tmpScore;
     /* 
     indhold:
     scoren
@@ -22,6 +23,7 @@ public class Score {
     GH = GAME_HEIGHT;
     GW = GAME_WIDTH;
     PlayerScore = 0;
+    tmpScore = 0;
     }
 
     public static void draw(Graphics g) {

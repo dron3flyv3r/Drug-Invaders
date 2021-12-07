@@ -62,6 +62,7 @@ public class GamePanel extends JPanel implements Runnable{
     public static void newPlayer() { //reset player 
         new AlienBullet();
         new Bullet();
+        AlienBullet.spawnRate = 60;
         player = new Player(GAME_HEIGHT, GAME_WIDTH, PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_SPEED, BARREL_WIDTH, BARREL_HEIGHT);
     }
 
@@ -107,6 +108,7 @@ public class GamePanel extends JPanel implements Runnable{
                 Alien.arl1.remove(Alien.arl1.get(i));
                 if (AlienBullet.spawnRate > 2) { AlienBullet.spawnRate--; }
                 Score.PlayerScore = Score.PlayerScore + 95;
+                Score.tmpScore = Score.tmpScore + 95;
             }
         }
  
@@ -117,6 +119,7 @@ public class GamePanel extends JPanel implements Runnable{
                 Alien.arl2.remove(Alien.arl2.get(i));
                 if (AlienBullet.spawnRate > 2) { AlienBullet.spawnRate--; }
                 Score.PlayerScore = Score.PlayerScore + 40;
+                Score.tmpScore = Score.tmpScore + 40;
             }
         }
 
@@ -127,6 +130,7 @@ public class GamePanel extends JPanel implements Runnable{
                 Alien.arl3.remove(Alien.arl3.get(i));
                 if (AlienBullet.spawnRate > 2) { AlienBullet.spawnRate--; } 
                 Score.PlayerScore = Score.PlayerScore + 15;
+                Score.tmpScore = Score.tmpScore + 15;
                 //Score.pliv = Score.pliv - 1; //for test only
             }
         }
@@ -149,11 +153,17 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
 
+    if (Score.tmpScore > 1000) {
+        Score.pLife++;
+        Score.tmpScore = 0;
+    }
+
         if (Alien.arl1.size() == 0 && Alien.arl2.size() == 0 && Alien.arl3.size() == 0) {
             newAlien();
         }
         if (Score.pLife == 0) {
             GAMEOVER = true;
+            AlienBullet.spawnRate = 60;
         }
     }
 
