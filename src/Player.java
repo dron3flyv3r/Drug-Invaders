@@ -91,13 +91,7 @@ public class Player{
     }
 
     public static void draw(Graphics g){
-        Image img = new ImageIcon("src/player.png").getImage();
+        Image img = new ImageIcon("player.png").getImage();
         g.drawImage(img, x, y, null);
-        /*
-        g.setColor(new Color(0,150,0));
-        g.fillRect(x, y, WIDTH, HEIGHT); 
-        g.fillRect(x + (WIDTH/2)-B_WIDTH/2, y - B_HEIGHT, B_WIDTH, B_HEIGHT);  
-        
-        */
     }   
 }

@@ -7,7 +7,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable{
-
+    
+    //her har vi nogle overall settings
 	private static final long serialVersionUID = 1L;
 	static final int GAME_WIDTH = 950;
     static final int GAME_HEIGHT = 750;
@@ -25,10 +26,9 @@ public class GamePanel extends JPanel implements Runnable{
     static final int ALIEN_SPACE = 30;
     static final int NUM_ALIEN = GAME_WIDTH/(ALIEN_WIDTH+ALIEN_SPACE);
     static final int NUM_ALIEN_LINES = 3;
-
-    
-
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
+
+    //her er nogle dirigeringer for lidt forskallede
     static Player player;
     Thread gameThread;
     Image image;
@@ -74,21 +74,22 @@ public class GamePanel extends JPanel implements Runnable{
         new Score(PLAYERS_LIFE, GAME_HEIGHT, GAME_WIDTH);
     }
 
-    public void draw(Graphics g) {
-        if (GAMEOVER == false) {
+    public void draw(Graphics g) { //her bliver de forskellige sprites kaldt på de nødvendig draw funktioner som skal bruges 
+        if (GAMEOVER == false) { // i denne if bliver default spiller genereret
             Player.draw(g);
             Bullet.draw(g);
             Alien.draw(g);
             Score.draw(g);
             AlienBullet.draw(g);
         }
-        if (GAMEOVER == true) {
+        if (GAMEOVER == true) { // her bliver vores gamer over function lavet når spilleren taber
             Score.gameOver(g);  
         }     
     }
 
-    public void checkCollision() {
+    public void checkCollision() { // alt som er i inden for her, søgere for at registrere at de interaktive ting gør det når det er tid
 
+        //her søgere for at spilleren ikke kan komme ud for spille arealet
         if (Player.x<=0) {
             Player.x=0;
         }
@@ -96,11 +97,13 @@ public class GamePanel extends JPanel implements Runnable{
             Player.x = GAME_WIDTH-PLAYER_WIDTH;
         }
 
+/*      // her stoppe skuet når det når toppe samt bliver tp 50 px højere op
         if (Bullet.y<= 0) {
             Bullet.setSpeed(0);
             Bullet.y = GAME_HEIGHT + 50;
-        }
+        } */
     
+        //her bliver der tjekket om et skud har ramt en alien
         for (int i = 0; i < Alien.arl1.size(); i++) {
             if (Bullet.x >= Alien.arl1.get(i) && Bullet.x <= Alien.arl1.get(i) + ALIEN_WIDTH && Bullet.y >= Alien.y && Bullet.y <= Alien.y + ALIEN_HEIGHT) {
                 Bullet.setSpeed(0);
@@ -111,7 +114,7 @@ public class GamePanel extends JPanel implements Runnable{
                 Score.tmpScore = Score.tmpScore + 95;
             }
         }
- 
+        //her bliver der tjekket om et skud har ramt en alien
         for (int i = 0; i < Alien.arl2.size(); i++) {
             if (Bullet.x >= Alien.arl2.get(i) && Bullet.x <= Alien.arl2.get(i) + ALIEN_WIDTH && Bullet.y >= (Alien.y+ALIEN_HEIGHT+ALIEN_SPACE) && Bullet.y <= (Alien.y+ALIEN_HEIGHT+ALIEN_SPACE) + ALIEN_HEIGHT) {
                 Bullet.setSpeed(0);
@@ -122,7 +125,7 @@ public class GamePanel extends JPanel implements Runnable{
                 Score.tmpScore = Score.tmpScore + 40;
             }
         }
-
+        //her hvis en alien er blevet ramt gør
         for (int i = 0; i < Alien.arl3.size(); i++) {
             if (Bullet.x >= Alien.arl3.get(i) && Bullet.x <= Alien.arl3.get(i) + ALIEN_WIDTH && Bullet.y >= (Alien.y+ALIEN_HEIGHT*2+ALIEN_SPACE*2) && Bullet.y <= (Alien.y+ALIEN_HEIGHT*2+ALIEN_SPACE*2) + ALIEN_HEIGHT) {
                 Bullet.setSpeed(0);
@@ -135,15 +138,15 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
+        //her bliver det først/øverste/nederste skud tjekket om det er uden for spille arealet, og hvis det er så bliver det fjernet
         if (AlienBullet.x.size() >= 1) {
-
             if (AlienBullet.y.get(0) > GAME_HEIGHT) {
                 AlienBullet.x.remove(0);
                 AlienBullet.y.remove(0);
             }
             
         
-
+        //her tjekker
         for (int i = 0; i < AlienBullet.y.size(); i++) {
             if (AlienBullet.x.get(i) > Player.x && AlienBullet.x.get(i) < Player.x + PLAYER_WIDTH && AlienBullet.y.get(i) > Player.y && AlienBullet.y.get(i) < Player.y + PLAYER_HEIGHT ) {
                 AlienBullet.x.remove(i);
@@ -152,7 +155,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
-
+    //hvis du har flere end 1000 point, vil du få et liv til
     if (Score.tmpScore > 1000) {
         Score.pLife++;
         Score.tmpScore = 0;
@@ -161,12 +164,14 @@ public class GamePanel extends JPanel implements Runnable{
         if (Alien.arl1.size() == 0 && Alien.arl2.size() == 0 && Alien.arl3.size() == 0) {
             newAlien();
         }
+        //hvis du har 0 liv, vil du tabe
         if (Score.pLife == 0) {
             GAMEOVER = true;
             AlienBullet.spawnRate = 60;
         }
     }
 
+    //her bliver move function sendt til alt der skal bevæge sig
     public void move() {
         Player.move();
         Bullet.move();
@@ -174,13 +179,15 @@ public class GamePanel extends JPanel implements Runnable{
         AlienBullet.move();
     }
 
+    //her bliver alt der er blevet tegnet samme sat og hvis som et bilede
     public void paint(Graphics g) {
         image = createImage(getWidth(), getHeight());
         graphics = image.getGraphics();
         draw(graphics);
         g.drawImage(image, 0, 0, this);
-        
     }
+
+    //det her er game engine, som køre hele spillet
     public void run() {
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
@@ -193,12 +200,13 @@ public class GamePanel extends JPanel implements Runnable{
             if (delta >= 1) {
                 move();
                 checkCollision();
-                repaint();
                 delta--;
             }
+        repaint();
         }        
     }
 
+    //her bliver keyPressed sendt til de nødvendige steder som skal bruge dem
     public class AL  extends KeyAdapter{
 
         public void keyPressed(KeyEvent e) {
