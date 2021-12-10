@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable{
     Graphics graphics;
 
 
-    GamePanel(){
+    GamePanel(){ //den her function starter hele spillet
         
         GAMEOVER = false;
         newPlayer();
@@ -48,8 +48,8 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread = new Thread(this);
         gameThread.start();
     }
-
-    public static void newGame() {
+    
+    public static void newGame() { //her bliver spillet reset
         GAMEOVER = false;
         Alien.arl1.clear();
         Alien.arl2.clear();
