@@ -58,9 +58,9 @@ public class Alien extends Rectangle {
     }
 
     public static void draw(Graphics g) {
-        Image img = new ImageIcon("alien1.png").getImage();
-        Image img2 = new ImageIcon("alien2.png").getImage();
-        Image img3 = new ImageIcon("alien3.png").getImage();
+        Image img = new ImageIcon("src/alien1.png").getImage();
+        Image img2 = new ImageIcon("src/alien2.png").getImage();
+        Image img3 = new ImageIcon("src/alien3.png").getImage();
         
 
             g.setColor(Color.red);

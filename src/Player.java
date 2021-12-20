@@ -91,7 +91,7 @@ public class Player{
     }
 
     public static void draw(Graphics g){
-        Image img = new ImageIcon("player.png").getImage();
+        Image img = new ImageIcon("src/player.png").getImage();
         g.drawImage(img, x, y, null);
     }   
 }
