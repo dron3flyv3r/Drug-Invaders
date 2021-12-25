@@ -10,7 +10,6 @@ public class Player{
      static int SPEED;
      static int B_WIDTH;
      static int B_HEIGHT;
-
      static int HEIGHT;
      static int WIDTH; 
      static int xVelocity;
