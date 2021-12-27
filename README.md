@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+## Welcome to Drug Invaders
 
-You can use the [editor on GitHub](https://github.com/dron3flyv3r/Drug-Invaders/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+This code was a school project, and all the code is made by [Drun3flyv3r](https://github.com/dron3flyv3r), [Antonyo](https://github.com/AntonyoDK) Kristoffer & [SomeInternetUser](https://github.com/SomeInternetUser)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The game is totaly original.... not the game was very inspired by Space Invaders.
 
-### Markdown
+### markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The code that basicly run the programe is this
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+`public void run() {
+        long lastTime = System.nanoTime();
+        double amountOfTicks = 60.0;
+        double ns = 1000000000 / amountOfTicks; 
+        double delta = 0;
+        while (true) {
+            long now = System.nanoTime();
+            delta += (now - lastTime)/ns;
+            lastTime = now;
+            if (delta >= 1) {
+                move();
+                checkCollision();
+                delta--;
+            }
+        repaint();
+        }        
+    }`
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+I'm that is my engien, that run the programe. I know it is not efficient at all, but it get the job don. If you would like to try the game, you have to [download the game](https://github.com/dron3flyv3r/Drug-Invaders) in to you're java IDE like [vsCode](https://code.visualstudio.com/) or something. 
+And then open the SRC where the source files or Java files are.  
+Then you can run the programe, and modifie the files or what ever you want.
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dron3flyv3r/Drug-Invaders/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Made by
+Made by [Drun3flyv3r](https://github.com/dron3flyv3r), [Antonyo](https://github.com/AntonyoDK) Kristoffer & [SomeInternetUser](https://github.com/SomeInternetUser)
