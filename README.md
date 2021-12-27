@@ -12,7 +12,7 @@ It is very simple to run the game, I know there are .jar file but i can't get it
 3. Click run, play and have fun
 4. (optional) modify the code, have fun, copy the code for orders projects and so on
 
-### markdown
+### How it works (very simple)
 
 The code that basicly run the programe is this
 
