@@ -36,9 +36,7 @@ public void run() {
     }
 ```
 
-I'm that is my engien, that run the programe. I know it is not efficient at all, but it get the job don. If you would like to try the game, you have to [download the game](https://github.com/dron3flyv3r/Drug-Invaders) in to you're java IDE like [VSCode](https://code.visualstudio.com/) or something. 
-And then open the SRC where the source files or Java files are.  
-Then you can run the programe, and modifie the files or what ever you want.
+That is my engien... not (I don't remeber where it got it from), that run the programe. I know it is not efficient **at all**, but it get the job don. If you would like to try the game, you have to [download the game](https://github.com/dron3flyv3r/Drug-Invaders) in to you're java IDE like [VSCode](https://code.visualstudio.com/) or something. And then open the SRC where the source files or Java files are. Then you can run the programe, and modifie the files or what ever you want.
 
 ### Made by
 Made by [Drun3flyv3r](https://github.com/dron3flyv3r), [Antonyo](https://github.com/AntonyoDK) Kristoffer & [SomeInternetUser](https://github.com/SomeInternetUser)
