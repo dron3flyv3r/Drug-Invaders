@@ -4,6 +4,14 @@ This code was a school project, and all the code is made by [Drun3flyv3r](https:
 
 The game is totaly original.... not the game was very inspired by Space Invaders.
 
+### How to run the program
+It is very simple to run the game, I know there are .jar file but i can't get it to work.
+
+1. Download the code [Drug-Invaders](https://github.com/dron3flyv3r/Drug-Invaders)
+2. Open it in a Java IDE, like [VSCode](https://code.visualstudio.com/)
+3. Click run, play and have fun
+4. (optional) modify the code, have fun, copy the code for orders projects and so on
+
 ### markdown
 
 The code that basicly run the programe is this
