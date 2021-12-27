@@ -9,7 +9,7 @@ The game is totaly original.... not the game was very inspired by Space Invaders
 The code that basicly run the programe is this
 
 ```markdown
-`public void run() {
+public void run() {
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks; 
@@ -25,7 +25,7 @@ The code that basicly run the programe is this
             }
         repaint();
         }        
-    }`
+    }
 ```
 
 I'm that is my engien, that run the programe. I know it is not efficient at all, but it get the job don. If you would like to try the game, you have to [download the game](https://github.com/dron3flyv3r/Drug-Invaders) in to you're java IDE like [vsCode](https://code.visualstudio.com/) or something. 
