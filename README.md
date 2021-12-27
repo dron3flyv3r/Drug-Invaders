@@ -2,7 +2,7 @@
 
 This code was a school project, and all the code is made by [Drun3flyv3r](https://github.com/dron3flyv3r), [Antonyo](https://github.com/AntonyoDK) Kristoffer & [SomeInternetUser](https://github.com/SomeInternetUser)
 
-The game is totaly original.... not the game was very inspired by Space Invaders.
+The game is totaly original.... not, the game was very inspired by Space Invaders.
 
 ### How to run the program
 It is very simple to run the game, I know there are .jar file but i can't get it to work.
