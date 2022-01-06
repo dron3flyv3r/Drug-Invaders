@@ -43,7 +43,6 @@ public class Alien extends Rectangle {
             x1 = arl1.get(arl1.size()-1)+GamePanel.ALIEN_WIDTH;
             if(x1 == GamePanel.GAME_WIDTH){
                 speed = -1;
-                System.out.println("arl1 did it");
             }
             if(arl1.get(0) == 0){
                 speed = 1;
@@ -53,7 +52,6 @@ public class Alien extends Rectangle {
             x2 = arl2.get(arl2.size()-1)+GamePanel.ALIEN_WIDTH;
             if(x2 == GamePanel.GAME_WIDTH){
                 speed = -1;
-                System.out.println("arl2 did it");
             }
             if(arl2.get(0) == 0){
                 speed = 1;
@@ -63,7 +61,6 @@ public class Alien extends Rectangle {
             x3 = arl3.get(arl3.size()-1)+GamePanel.ALIEN_WIDTH;
             if(x3 == GamePanel.GAME_WIDTH){
                 speed = -1;
-                System.out.println("arl3 did it");
             }
             if(arl3.get(0) == 0){
                 speed = 1;
