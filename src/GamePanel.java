@@ -7,11 +7,13 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable{
+
     
     //her har vi nogle overall settings
 	static final int GAME_WIDTH = 950;
     static final int GAME_HEIGHT = 750;
     static boolean GAMEOVER;
+    int run;
     
     static final int PLAYER_WIDTH = 90;
     static final int PLAYER_HEIGHT = 39;
@@ -75,6 +77,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void draw(Graphics g) { //her bliver de forskellige sprites kaldt på de nødvendig draw funktioner som skal bruges 
         if (GAMEOVER == false) { // i denne if bliver default spiller genereret
+            Background.draw(g);
             Player.draw(g);
             Bullet.draw(g);
             Alien.draw(g);
@@ -83,7 +86,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if (GAMEOVER == true) { // her bliver vores gamer over function lavet når spilleren taber
             Score.gameOver(g);  
-        }     
+        }
     }
 
     public void checkCollision() { // alt som er i inden for her, søgere for at registrere at de interaktive ting gør det når det er tid

@@ -7,11 +7,13 @@ public class GameFrame extends JFrame{
     GameFrame(){
         panel = new GamePanel();
 
+        
         this.add(panel);
-        this.setBackground(Color.BLACK);
+        this.setBackground(Color.black);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
-        this.setResizable(false);
+        this.setMinimumSize(GamePanel.SCREEN_SIZE);
+        this.setResizable(true);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
