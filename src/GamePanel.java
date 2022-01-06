@@ -35,7 +35,6 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     GamePanel(){ //den her function starter hele spillet
-        
         GAMEOVER = false;
         newPlayer();
         newAlien();
