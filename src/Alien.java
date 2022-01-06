@@ -17,8 +17,10 @@ public class Alien extends Rectangle {
     
     static final int WIDTH = 50;
     static final int HEIGHT = 90;
-    static int x;
     static int y;
+    static int x1;
+    static int x2;
+    static int x3;
     static int speed;
 
     static final int loop = 0;
@@ -33,17 +35,40 @@ public class Alien extends Rectangle {
             arl1.add(x);
             arl2.add(x);
             arl3.add(x);
-            }
+        }
     }
     public static void move() {
-        x = arl1.get(arl1.size()-1)+GamePanel.ALIEN_WIDTH;
         //change the speed direction when it hit the border
-        if(x == GamePanel.GAME_WIDTH){
-            speed = -1;
+        if (arl1.size() > 0) {
+            x1 = arl1.get(arl1.size()-1)+GamePanel.ALIEN_WIDTH;
+            if(x1 == GamePanel.GAME_WIDTH){
+                speed = -1;
+                System.out.println("arl1 did it");
+            }
+            if(arl1.get(0) == 0){
+                speed = 1;
+            }
         }
-        if(arl1.get(0) == 0){
-            speed = 1;
+        if (arl2.size() > 0) {
+            x2 = arl2.get(arl2.size()-1)+GamePanel.ALIEN_WIDTH;
+            if(x2 == GamePanel.GAME_WIDTH){
+                speed = -1;
+                System.out.println("arl2 did it");
+            }
+            if(arl2.get(0) == 0){
+                speed = 1;
+            }
         }
+        if (arl3.size() > 0) {
+            x3 = arl3.get(arl3.size()-1)+GamePanel.ALIEN_WIDTH;
+            if(x3 == GamePanel.GAME_WIDTH){
+                speed = -1;
+                System.out.println("arl3 did it");
+            }
+            if(arl3.get(0) == 0){
+                speed = 1;
+            }
+        } 
 
       
     for(int i = 0; i < arl1.size(); i++){
@@ -58,9 +83,9 @@ public class Alien extends Rectangle {
     }
 
     public static void draw(Graphics g) {
-        Image img = new ImageIcon("src/alien1.png").getImage();
-        Image img2 = new ImageIcon("src/alien2.png").getImage();
-        Image img3 = new ImageIcon("src/alien3.png").getImage();
+        Image img = new ImageIcon("alien1.png").getImage();
+        Image img2 = new ImageIcon("alien2.png").getImage();
+        Image img3 = new ImageIcon("alien3.png").getImage();
         
 
             g.setColor(Color.red);

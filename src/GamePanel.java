@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel implements Runnable{
     
     //her har vi nogle overall settings
-	private static final long serialVersionUID = 1L;
 	static final int GAME_WIDTH = 950;
     static final int GAME_HEIGHT = 750;
     static boolean GAMEOVER;
@@ -51,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     public static void newGame() { //her bliver spillet reset
         GAMEOVER = false;
+        AlienBullet.spawnRate = 60;
         Alien.arl1.clear();
         Alien.arl2.clear();
         Alien.arl3.clear();
@@ -96,12 +96,6 @@ public class GamePanel extends JPanel implements Runnable{
         if (Player.x>=GAME_WIDTH-PLAYER_WIDTH) {
             Player.x = GAME_WIDTH-PLAYER_WIDTH;
         }
-
-/*      // her stoppe skuet når det når toppe samt bliver tp 50 px højere op
-        if (Bullet.y<= 0) {
-            Bullet.setSpeed(0);
-            Bullet.y = GAME_HEIGHT + 50;
-        } */
     
         //her bliver der tjekket om et skud har ramt en alien
         for (int i = 0; i < Alien.arl1.size(); i++) {
@@ -161,13 +155,12 @@ public class GamePanel extends JPanel implements Runnable{
         Score.tmpScore = 0;
     }
 
-        if (Alien.arl1.size() == 0 && Alien.arl2.size() == 0 && Alien.arl3.size() == 0) {
+        if (Alien.arl1.size() + Alien.arl2.size() + Alien.arl3.size() == 0) {
             newAlien();
         }
         //hvis du har 0 liv, vil du tabe
         if (Score.pLife == 0) {
             GAMEOVER = true;
-            AlienBullet.spawnRate = 60;
         }
     }
 
