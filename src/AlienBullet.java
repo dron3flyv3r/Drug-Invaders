@@ -21,17 +21,19 @@ public class AlienBullet {
 
             
         public static void move() {
-            int luckyNum = rn.nextInt(spawnRate) + 1;
+            if(Alien.arl1.size()>0){
+                int luckyNum = rn.nextInt(spawnRate) + 1;
 
-            if (luckyNum == 1) {
-            int AlienNumber = rn.nextInt(Alien.arl1.size());
-            AlienBullet.x.add(Alien.arl1.get(AlienNumber) + GamePanel.ALIEN_WIDTH/2);
-            AlienBullet.y.add(GamePanel.ALIEN_HEIGHT + Alien.y);
-            }
+                if (luckyNum == 1) {
+                int AlienNumber = rn.nextInt(Alien.arl1.size());
+                AlienBullet.x.add(Alien.arl1.get(AlienNumber) + GamePanel.ALIEN_WIDTH/2);
+                AlienBullet.y.add(GamePanel.ALIEN_HEIGHT + Alien.y);
+                }
 
-        for(int i = 0; i < y.size(); i++){
-            y.set(i, y.get(i)+Speed);
             }
+            for(int i = 0; i < y.size(); i++){
+                y.set(i, y.get(i)+Speed);
+                }
         }
 
 

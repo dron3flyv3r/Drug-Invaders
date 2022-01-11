@@ -25,7 +25,7 @@ public class GamePanel extends JPanel implements Runnable{
     static final int ALIEN_WIDTH = 40;
     static final int ALIEN_HEIGHT = 80;
     static final int ALIEN_SPACE = 30;
-    static final int NUM_ALIEN = GAME_WIDTH/(ALIEN_WIDTH+ALIEN_SPACE);
+    static final int NUM_ALIEN = 2; //GAME_WIDTH/(ALIEN_WIDTH+ALIEN_SPACE);
     static final int NUM_ALIEN_LINES = 3;
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
 
@@ -76,8 +76,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void draw(Graphics g) { //her bliver de forskellige sprites kaldt på de nødvendig draw funktioner som skal bruges 
-        if (GAMEOVER == false) { // i denne if bliver default spiller genereret
             Background.draw(g);
+        if (GAMEOVER == false) { // i denne if bliver default spiller genereret
             Player.draw(g);
             Bullet.draw(g);
             Alien.draw(g);

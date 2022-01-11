@@ -25,7 +25,7 @@ public class Alien extends Rectangle {
     
 
     Alien(){ 
-        speed = 1;
+        speed = 2;
         x = 0;
         y = 10;
         for(int i = 0; i < GamePanel.NUM_ALIEN; i++){
