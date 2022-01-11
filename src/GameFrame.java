@@ -5,8 +5,7 @@ import javax.swing.JFrame;
 public class GameFrame extends JFrame{
 	GamePanel panel;
     GameFrame(){
-        panel = new GamePanel();
-
+        panel = new GamePanel();        
         
         this.add(panel);
         this.setBackground(Color.black);

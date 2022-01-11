@@ -7,8 +7,6 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 public class Alien extends Rectangle {
-
-	private static final long serialVersionUID = 4509750528040500953L;
 	static ArrayList<Integer> arl1=new ArrayList<Integer>();
     static ArrayList<Integer> arl2=new ArrayList<Integer>();
     static ArrayList<Integer> arl3=new ArrayList<Integer>();
